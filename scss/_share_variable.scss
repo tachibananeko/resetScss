@@ -1,0 +1,41 @@
+// 字體顏色
+$txt_color: (
+    primary: #000,
+    secondary: #ffbe65,
+    white: #fff,
+    lightgray: #c1c1c1,
+    darkgray: #323232,
+    shadow: rgba(0, 0, 0, .7),
+    lightshadow: rgba(0, 0, 0, .3),
+    white_shadow: hsla(0, 0%, 100%, 0.3),
+);
+// 背景色
+$bg_color: (
+    primary: #eee,
+    secondary: #ffbe65,
+    gray: #bebebe,
+    black: #000,
+    white: #fff,
+    black_alpha: rgba(0, 0, 0, 0.7),
+    gray_alpha: rgba(0, 0, 0, 0.5),
+    white_alpha: rgba(255, 255, 255, 0.6),
+    label_br: #bebebe,
+    label_br_hv: #666,
+);
+
+// 裝飾線色
+$border_color: (
+    primary: linear-gradient(to right,rgba(242, 216, 122, 0) 0, #f2d77a 10%, #ffffc5 30%, #f2d77a 60%, rgba(242, 216, 122, 0) 100%) 1,
+);
+
+// 顏色class
+@each $name, $value in $txt_color {
+    .txt_#{$name} {
+        color: $value !important;
+    }
+}
+@each $name, $value in $bg_color {
+    .bg_#{$name} {
+        background: $value !important;
+    }
+}

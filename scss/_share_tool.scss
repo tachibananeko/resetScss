@@ -1,0 +1,296 @@
+.--noscroll{
+    overflow: hidden;
+}
+%txtshadow {
+    text-shadow: 0 0 5px map-get($txt_color, shadow);
+}
+
+// 標題字型
+%title {
+    position: relative;
+    width: 100%;
+    color: map-get($txt_color, primary);
+    font-size: 56px;
+    font-weight: bold;
+    text-align: center;
+
+    @include mw_md{
+        font-size: 32px;
+    }
+}
+
+// 動畫
+.active_item {
+    @extend %transition;
+    opacity: 0;
+    visibility: collapse;
+    transform: translate3d(0, -20%, 0);
+    transform-origin: 0 top;
+    z-index: 2;
+
+    @include mw_md {
+        transform: scale(1, 0);
+        height: 0;
+    }
+}
+
+.--active {
+
+    >.active_item,
+    ~.active_item {
+        visibility: visible;
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+
+        @include mw_md {
+            transform: scale(1, 1);
+            height: auto;
+        }
+    }
+}
+
+// 常用元件
+.pd_RLauto{
+    padding-left: 180px;
+    padding-right: 180px;
+
+    @include mw_lg {
+        padding-left: 64px;
+        padding-right: 64px;
+    }
+
+    @include mw_sm {
+        padding-left: calc(24px + constant(safe-area-inset-left));
+        padding-left: calc(24px + env(safe-area-inset-left));
+        padding-right: calc(24px + constant(safe-area-inset-right));
+        padding-right: calc(24px + env(safe-area-inset-right));
+    }
+}
+.pd_TBauto {
+    padding-top: 64px;
+    padding-bottom: 64px;
+
+    @include mw_md {
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
+}
+
+// .more_btn
+.more_btn {  
+    @extend %transition;
+    position: relative;
+    display: block;
+    min-width: 120px;
+    padding: 0 16px;
+    height: 40px;
+    border-radius: 40px;
+    border: 1px solid map-get($bg_color, secondary);
+    background: map-get($bg_color, secondary);
+    margin: auto;
+
+    &::after{
+        @extend %transition;
+        content: attr(data-txt);
+        color: map-get($txt_color, primary);
+        font-size: 20px;
+        font-weight: bold;
+        z-index: 1;
+    }
+
+
+    @include mw_lg {
+        font-size: 14px;
+    }
+
+    // 手指效果
+    @include hoverHandler {
+        background: transparent;
+
+        &::after{
+            color: map-get($txt_color , white);
+        }
+    }
+}
+
+.txt_bold{
+    font-weight: bold;
+}
+.txt_link {
+    color: map-get($txt_color , secondary);
+    font-weight: bold;
+
+    @include hoverHandler{
+        text-decoration: underline;
+    }
+}
+body{
+    @include d_f(flex, center, center);
+    flex-direction: column;
+}
+// 常用label組合模組
+.labelMd{
+    @include d_f(flex);
+    position: relative;
+    width: 150px;
+    height: 30px;
+    background: map-get($bg_color, white);
+    border: 1px solid map-get($bg_color, label_br);
+
+    margin-bottom: 24px;
+
+    // 各種型態
+    // 輸入框
+    input{
+        width: 100%;
+        height: 100%;
+        padding: 0 8px;
+    }
+
+
+    // 下拉選單
+    &.--select{
+        select{
+            width: 100%;
+            height: 100%;
+            padding: 0 8px;
+        }
+    }
+
+
+
+    // 多選勾勾
+    &.--check{
+
+    }
+
+
+
+    // 單選圈圈
+    &.--redio{
+        @extend %hand;
+        @include d_f(inline-flex, center, flex-start);
+    
+        input {
+            display: none;
+        }
+    
+        span {
+            position: relative;
+            display: block;
+            width: 15px;
+            height: 15px;
+            background: map-get($bg_color, white);
+            border: 1px solid map-get($bg_color , gray);
+            border-radius: 15px;
+            margin-right: 5px;
+    
+            &::before {
+                @include pos_a(trbl, 0);
+                content: none;
+                width: calc(100% - 4px);
+                height: calc(100% - 4px);
+                background: map-get($bg_color, secondary);
+                border-radius: 100%;
+                margin: auto;
+            }
+        }
+    
+        input:checked+span::before {
+            content: '';
+        }
+    }
+
+
+
+    // 多行textarea
+    &.--textarea{
+
+    }
+    
+
+    
+    // 組件
+    // 標題
+    code {
+        @include pos_a(bl, calc(100% + 2px), 0);
+        padding: 0 2px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .txt{
+        flex: none;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    // icon
+    i{
+        @include pos_a(tbr, 0, 0, 8px);
+        flex: none;
+        width: 30px;
+        height: 30px;
+    }
+
+    // 手指效果
+    @include hoverHandler {
+        border-color: map-get($bg_color, btn_br_hv);
+    }
+}
+
+.normal_input {
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+    background: map-get($bg_color, white);
+    border: 1px solid transparent;
+    
+    &.--err{
+        border-color: map-get($txt_color, red)
+    }
+
+    // 手指效果
+    @include hoverHandler {        
+        border-color: map-get($bg_color, blue);
+    }
+}
+.normal_input+.notice:empty{
+    display: none;
+}
+.normal_input.--err+.notice{
+    display: block;
+    padding: 4px 16px 0;
+    color: map-get($txt_color, red);
+}
+
+.normal_textarea{
+    width: 100%;
+    height: 200px;
+    padding: 16px;
+    background: map-get($bg_color, white);
+    border: 1px solid transparent;
+
+    // 手指效果
+    @include hoverHandler {
+        border-color: map-get($bg_color, blue);
+    }
+}
+
+// icon設定
+$icon: (
+    'address',
+    'mail',
+    'tel',
+    'wapp',
+    'ig',
+    'fb',
+    'twitter'
+);
+
+@each $name in $icon {
+    .icon_#{$name} {
+        display: inline-block;
+        background: url(../images/icon_#{$name}.svg) no-repeat center / contain;
+    }
+}
