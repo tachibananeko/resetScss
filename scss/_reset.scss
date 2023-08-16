@@ -1,3 +1,4 @@
+//20230809
 @charset "UTF-8";
 *{
 	font-family: 'Roboto', sans-serif;
@@ -50,7 +51,7 @@ html,
 body {
 	width: 100%;
 	height: 100%;
-	background: map-get($bg_color, primary);
+	background: map-get($bg_color, mainBg);
 	touch-action: manipulation;
 	font-size: 16px;
 	color: map-get($txt_color, primary);
@@ -101,7 +102,7 @@ textarea {
 	-ms-appearance: none;
 	appearance: none;
 	resize: none;
-	color: map-get($txt_color, black);
+	color: map-get($txt_color, primary);
 	font-size: 16px;
 	border-radius: 0;
 	margin: 0;
@@ -140,12 +141,12 @@ tt {
 	::-webkit-scrollbar {
 		width: 6px;
 		height: 6px;
-		background-color: map-get($bg_color, primary);
+		background-color: map-get($bg_color, scrollBg);
 	}
 
 	::-webkit-scrollbar-thumb {
-		background-color: map-get($bg_color, gray);
-		border: 1px map-get($bg_color, gray) solid;
+		background-color: map-get($bg_color, scrollBar);
+		border: 1px map-get($bg_color, scrollBg) solid;
 		border-radius: 3px;
 		cursor: pointer;
 		-webkit-transition: background .5s linear;
@@ -153,10 +154,10 @@ tt {
 	}
 
 	*:hover::-webkit-scrollbar-thumb {
-		background-color: map-get($bg_color, black);
+		background-color: map-get($bg_color, scrollBar_hv);
 	}
 
 	::-webkit-scrollbar-corner {
-		background-color: map-get($bg_color, primary);
+		background-color: map-get($bg_color, scrollBar);
 	}
 }

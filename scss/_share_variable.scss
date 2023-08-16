@@ -12,7 +12,7 @@ $txt_color: (
 // 背景色
 $bg_color: (
     primary: #eee,
-    secondary: #ffbe65,
+    secondary: #ffbe65,    
     gray: #bebebe,
     black: #000,
     white: #fff,
@@ -20,8 +20,14 @@ $bg_color: (
     black_alpha: rgba(0, 0, 0, 0.7),
     gray_alpha: rgba(0, 0, 0, 0.5),
     white_alpha: rgba(255, 255, 255, 0.6),
+
+    //reset share_tool 相關 
+    mainBg: #efefef,
     label_br: #bebebe,
     label_br_hv: #666,
+    scrollBg: #fff,
+    scrollBar: #50a7c2,
+    scrollBar_hv: #8dc6d7,
 );
 
 // 裝飾線色
