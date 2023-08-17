@@ -141,10 +141,6 @@
         background: map-get($bg_color, white);
         border: 1px solid map-get($bg_color, label_br);
 
-        i{
-            pointer-events: none;
-        }
-
         &.--active{
             i{
                 transform: rotateX(180deg);
@@ -156,11 +152,19 @@
             border-color: map-get($bg_color, label_br_disabled);
         }
 
+        i{
+            pointer-events: none;
+        }
+
         // pc
+        span{
+            width: calc(100% - 30px);
+        }
+
         ul{
             @include pos_a(tl, calc(100% + 5px), 0);
             width: 100%;
-            padding: 8px 0;
+            padding-left: 8px;
             background: map-get($bg_color, white);
             border: 1px solid map-get($bg_color, label_br);
 
@@ -177,9 +181,9 @@
 
         // ph
         select{
-            width: 100%;
+            width: calc(100% - 30px);
             height: 100%;
-            padding: 0 8px;
+            padding-left: 8px;
             color: inherit;
             font-size: 14px;
         }
