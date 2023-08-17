@@ -13,7 +13,7 @@ $txt_color: (
 $bg_color: (
     primary: #eee,
     secondary: #ffbe65,    
-    gray: #bebebe,
+    lightgray: #eee,
     black: #000,
     white: #fff,
     red: #FF4E65,
@@ -22,9 +22,10 @@ $bg_color: (
     white_alpha: rgba(255, 255, 255, 0.6),
 
     //reset share_tool 相關 
-    mainBg: #efefef,
-    label_br: #bebebe,
+    mainBg: hsl(0, 0%, 98%),
+    label_br: #999,
     label_br_hv: #666,
+    label_br_disabled: #eee,
     scrollBg: #fff,
     scrollBar: #50a7c2,
     scrollBar_hv: #8dc6d7,

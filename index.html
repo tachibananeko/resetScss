@@ -17,17 +17,28 @@
     <link rel="apple-touch-icon" type="image/png" href="images/favicon.png">
     <link rel="apple-touch-icon-precomposed" href="images/favicon.png">
 </head>
-<body style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+<body style="display: flex; align-items: center; flex-direction: column; padding-top: 50px;">
     <!-- input -->
     <label class="labelMd --text --dot">
         <input type="text">
         <code>標題</code>
     </label>
 
+    <label class="labelMd --text --disabled">
+        <input type="text">
+        <code>disabled</code>
+    </label>
+
     <label class="labelMd --text">
         <i class="icon_pw_hidden"></i>
         <input type="text">
         <code>標題</code>
+    </label>
+
+    <label class="labelMd --text --disabled">
+        <i class="icon_pw_hidden"></i>
+        <input type="text">
+        <code>disabled</code>
     </label>
 
 
@@ -46,8 +57,32 @@
         
         <code>標題</code>
     </label>
+
+    <label class="labelMd --select --disabled">
+        <i class="icon_arrow"></i>
+        <span class="selectTitle">disabled</span>
+        <ul class="active_item">
+            <li>內容1</li>
+            <li>內容2</li>
+            <li>內容3</li>
+        </ul>
+    
+        <code>標題</code>
+    </label>
+
+
     <!-- ph -->
     <label class="labelMd --select">
+        <i class="icon_arrow"></i>
+        <select>
+            <option value="">disabled</option>
+            <option value="">內容2</option>
+            <option value="">內容3</option>
+        </select>
+        <code>標題</code>
+    </label>
+
+    <label class="labelMd --select --disabled">
         <i class="icon_arrow"></i>
         <select>
             <option value="">內容1</option>
@@ -68,8 +103,17 @@
         </div>
     </label>
 
+    <label class="labelMd --check --disabled">
+        <input type="checkbox">
+        <span class="show_item"></span>
+        <div class="txt">
+            disabled
+        </div>
+    </label>
 
 
+
+    <!-- redio -->
     <label class="labelMd --redio">
         <input type="radio">
         <span class="show_item"></span>
@@ -78,10 +122,22 @@
         </div>
     </label>
 
+    <label class="labelMd --redio --disabled">
+        <input type="radio">
+        <span class="show_item"></span>
+        <div class="txt">
+            disabled
+        </div>
+    </label>
+
 
 
     <label class="labelMd --textarea">
         <textarea></textarea>
+    </label>
+
+    <label class="labelMd --textarea --disabled">
+        <textarea>disabled</textarea>
     </label>
 </body>
 </html>
