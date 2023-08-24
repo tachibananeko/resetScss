@@ -292,19 +292,21 @@
             display: none;
 
             &:checked~span {
-                background: map-get($bg_color, switch_bg_off);
+                background: map-get($bg_color, switch_bg);
             }
 
             &:checked ~ span::after{
-                background: map-get($bg_color, switch_push_off);
+                background: map-get($bg_color, switch_push);
                 transform: translate3d(160%, 0, 0);
             }
         }
 
         span{
+            @extend %transition;
             display: block;
             width: 100%;
             height: 100%;
+            background: map-get($bg_color, switch_bg_off);
             border: 1px solid map-get($bg_color, label_br);
             border-radius: 24px;
 
@@ -320,7 +322,7 @@
                 content: '';
                 width: 20px;
                 height: 20px;
-                background: map-get($bg_color, switch_push);
+                background: map-get($bg_color, switch_push_off);
                 border-radius: 100%;
 
                 z-index: 2;
