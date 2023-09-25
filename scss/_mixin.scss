@@ -198,17 +198,15 @@ $breakpoints: (
 
 // 僅在pc顯示
 @mixin fine {
-	@media (pointer: fine) and (max-resolution: 2dppx),
-	screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2),
-	(-moz-touch-enabled: 0){
+	@media (pointer: fine) and (hover: hover){
 		@content;
 	}
 }
 // 僅在ph顯示
 @mixin coarse{
 	@media (pointer: coarse),
-	(-moz-touch-enabled: 1),
-	screen and (pointer: fine) and (min-resolution: 2dppx) and (max-width: 1023px){
+	(hover: none),
+	(-moz-touch-enabled: 1){
 		@content;
 	}
 }
@@ -237,9 +235,7 @@ $breakpoints: (
 
 // 一般滑過
 @mixin hoverHandler {
-	@media (pointer: fine) and (max-resolution: 2dppx),
-	screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2),
-	(-moz-touch-enabled: 0) {
+	@media (pointer: fine) and (hover: hover) {
 		&:not(:disabled):not(.--on):not(.--err):hover {
 			@content;
 		}
@@ -253,10 +249,7 @@ $breakpoints: (
 
 // 漸層按鈕滑過
 @mixin btn_hoverHandler($border, $txt) {
-
-	@media (pointer: fine) and (max-resolution: 2dppx),
-	screen and (pointer: fine) and (-webkit-max-device-pixel-ratio: 2),
-	(-moz-touch-enabled: 0) {
+	@media (pointer: fine) and (hover: hover) {
 		&:not(:disabled):not(.--on):not(.--err):hover {
 			border-width: $border;
 			@content;
